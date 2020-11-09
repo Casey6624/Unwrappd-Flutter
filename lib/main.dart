@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import "./classes/Chippy.dart";
+// views
+import "./views/Search.dart";
+import "./views/Placeholder.dart";
 
 void main() {
   runApp(MyApp());
@@ -16,84 +16,49 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Unwrappd',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Unwrappd'),
+      home: UnwrappdMain(title: 'Unwrappd'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class UnwrappdMain extends StatefulWidget {
+  UnwrappdMain({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _UnwrappdMainState createState() => _UnwrappdMainState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  String searchText = "S66 8RN";
+class _UnwrappdMainState extends State<UnwrappdMain> {
+  int _tabIndex = 0;
+  final List<Widget> _children = [
+    PlaceholderWidget(Colors.amber, "Home"),
+    Search(),
+    PlaceholderWidget(Colors.blue, "Reviews"),
+    PlaceholderWidget(Colors.deepPurple, "Profile"),
+  ];
 
-  Future<Chippy> _callAPI() async {
-    log("Calling API with param " + searchText);
-    try {
-      Map<String, String> body = {'postcode': searchText};
-      final http.Response response = await http.post(
-        'http://172.16.6.158:4500/get-chippies',
-        headers: {'Content-Type': 'application/json; charset=UTF-8'},
-        body: jsonEncode(body),
-      );
-      if (response.statusCode == 200) {
-        Chippy chippies = Chippy.fromJson(jsonDecode(response.body)[0]);
-        log("haha");
-        return chippies;
-      }
-    } on Exception catch (exception) {
-      log(exception.toString());
-    } catch (error) {
-      log(error);
-    }
-  }
-
-  Future<dynamic> _getChippies() async {
-    var test = _callAPI();
-    //log(chippies);
+  void tabPressed(int index) {
+    setState(() {
+      _tabIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-
-    final searchField = TextField(
-      onChanged: (txt) {
-        searchText = txt;
-        print(txt);
-      },
-      obscureText: false,
-      style: style,
-      decoration: InputDecoration(
-          hintText: "Search by postcode",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-    );
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          searchField,
-          RaisedButton(
-            child: Text("GO"),
-            onPressed: _getChippies,
-          ),
-        ],
-      ),
+      body: _children[_tabIndex],
       bottomNavigationBar: BottomNavigationBar(
+        onTap: tabPressed,
         type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
+        currentIndex: _tabIndex,
         items: [
           BottomNavigationBarItem(
               icon: new Icon(Icons.home), title: Text("Home")),
