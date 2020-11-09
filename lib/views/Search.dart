@@ -60,9 +60,6 @@ class _SearchState extends State<Search> {
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
     );
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Search"),
-      ),
       body: Column(
         children: <Widget>[
           searchField,

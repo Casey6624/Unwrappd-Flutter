@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // views
 import "./views/Search.dart";
 import "./views/Placeholder.dart";
+// styling
+import "./styles/UnwrappdColours.dart";
 
 void main() {
   runApp(MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Unwrappd',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: UnwrappdColours.highlightGreen,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: UnwrappdMain(title: 'Unwrappd'),
@@ -52,7 +54,13 @@ class _UnwrappdMainState extends State<UnwrappdMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          "Unwrappd.",
+          style: TextStyle(
+              color: UnwrappdColours.mainGreen,
+              fontFamily: "Montserrat",
+              fontSize: 30),
+        ),
       ),
       body: _children[_tabIndex],
       bottomNavigationBar: BottomNavigationBar(
