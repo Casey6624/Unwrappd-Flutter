@@ -1,11 +1,11 @@
-import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 // views
 import "./views/Search.dart";
+import "./views/Index.dart";
 import "./views/Placeholder.dart";
 // styling
 import "./styles/UnwrappdColours.dart";
+import "package:flutter_svg/flutter_svg.dart";
 
 void main() {
   runApp(MyApp());
@@ -38,7 +38,7 @@ class UnwrappdMain extends StatefulWidget {
 class _UnwrappdMainState extends State<UnwrappdMain> {
   int _tabIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.amber, "Home"),
+    Index(),
     Search(),
     PlaceholderWidget(Colors.blue, "Reviews"),
     PlaceholderWidget(Colors.deepPurple, "Profile"),
@@ -54,14 +54,8 @@ class _UnwrappdMainState extends State<UnwrappdMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Unwrappd.",
-          style: TextStyle(
-              color: UnwrappdColours.mainGreen,
-              fontFamily: "Montserrat",
-              fontSize: 30),
-        ),
-      ),
+          title: SvgPicture.asset("assets/logo-abstract.svg",
+              height: 40, width: 40)),
       body: _children[_tabIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: tabPressed,
@@ -69,9 +63,9 @@ class _UnwrappdMainState extends State<UnwrappdMain> {
         currentIndex: _tabIndex,
         items: [
           BottomNavigationBarItem(
-              icon: new Icon(Icons.home), title: Text("Home")),
-          BottomNavigationBarItem(
               icon: new Icon(Icons.search), title: Text("Search")),
+          BottomNavigationBarItem(
+              icon: new Icon(Icons.announcement), title: Text("Discover")),
           BottomNavigationBarItem(
               icon: new Icon(Icons.rate_review), title: Text("Reviews")),
           BottomNavigationBarItem(

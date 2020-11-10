@@ -5,10 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import "../classes/Chippy.dart";
 
-void main() {
-  runApp(Search());
-}
-
 class Search extends StatefulWidget {
   @override
   _SearchState createState() => _SearchState();
