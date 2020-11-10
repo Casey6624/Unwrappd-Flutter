@@ -41,7 +41,7 @@ class _SearchState extends State<Search> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+    TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 16.0);
 
     final searchField = TextField(
       onChanged: (txt) {
@@ -53,18 +53,17 @@ class _SearchState extends State<Search> {
       decoration: InputDecoration(
           hintText: "Search by postcode",
           border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+              OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))),
     );
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          searchField,
-          RaisedButton(
-            child: Text("GO"),
-            onPressed: _getChippies,
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        searchField,
+        RaisedButton(
+          child: Text("GO"),
+          onPressed: _getChippies,
+        ),
+      ],
     );
   }
 }

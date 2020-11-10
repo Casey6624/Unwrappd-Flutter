@@ -4,37 +4,40 @@ import 'package:unwrappd/styles/UnwrappdColours.dart';
 import "../styles/UnwrappdColours.dart";
 // components
 import "../components/CardBlurb.dart";
+import "../components/Search.dart";
 
 class Index extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: <Widget>[
-      Container(
-        padding: new EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text("Welcome Back.",
-                style: TextStyle(
-                    fontFamily: "FrederickatheGreat",
-                    fontSize: 40,
-                    color: UnwrappdColours.mainGreen)),
-          ],
-        ),
-      ),
-      CardBlurb(
-        icon: "assets/eating.svg",
-        mainText: "Share your",
-        highlightText: "Favourites",
-        alignmentDir: "right",
-      ),
-      CardBlurb(
-        icon: "assets/fans.svg",
-        mainText: "Compare against",
-        highlightText: "Friends",
-        alignmentDir: "left",
-      ),
-    ]));
+        resizeToAvoidBottomPadding: false,
+        body: ListView(children: <Widget>[
+          Container(
+            padding: new EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text("Welcome Back.",
+                    style: TextStyle(
+                        fontFamily: "FrederickatheGreat",
+                        fontSize: 40,
+                        color: UnwrappdColours.mainGreen)),
+              ],
+            ),
+          ),
+          CardBlurb(
+            icon: "assets/eating.svg",
+            mainText: "Share your",
+            highlightText: "Favourites",
+            alignmentDir: "right",
+          ),
+          CardBlurb(
+            icon: "assets/fans.svg",
+            mainText: "Compare against",
+            highlightText: "Friends",
+            alignmentDir: "left",
+          ),
+          Search(),
+        ]));
   }
 }

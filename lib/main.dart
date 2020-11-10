@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 // views
-import "./views/Search.dart";
 import "./views/Index.dart";
 import "./views/Placeholder.dart";
 // styling
@@ -39,7 +38,7 @@ class _UnwrappdMainState extends State<UnwrappdMain> {
   int _tabIndex = 0;
   final List<Widget> _children = [
     Index(),
-    Search(),
+    PlaceholderWidget(Colors.lightBlue, "Discover"),
     PlaceholderWidget(Colors.blue, "Reviews"),
     PlaceholderWidget(Colors.deepPurple, "Profile"),
   ];
@@ -65,7 +64,7 @@ class _UnwrappdMainState extends State<UnwrappdMain> {
           BottomNavigationBarItem(
               icon: new Icon(Icons.search), title: Text("Search")),
           BottomNavigationBarItem(
-              icon: new Icon(Icons.announcement), title: Text("Discover")),
+              icon: new Icon(Icons.directions_boat), title: Text("Discover")),
           BottomNavigationBarItem(
               icon: new Icon(Icons.rate_review), title: Text("Reviews")),
           BottomNavigationBarItem(
