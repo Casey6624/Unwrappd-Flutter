@@ -5,6 +5,7 @@ import "../styles/UnwrappdColours.dart";
 // components
 import "../components/CardBlurb.dart";
 import "../components/Search.dart";
+import "../classes/CurvePainter.dart";
 
 class Index extends StatelessWidget {
   @override
@@ -37,7 +38,13 @@ class Index extends StatelessWidget {
             highlightText: "Friends",
             alignmentDir: "left",
           ),
-          Search(),
+          Container(
+            height: 180,
+            child: CustomPaint(
+              child: Search(),
+              painter: CurvePainter(),
+            ),
+          ),
         ]));
   }
 }

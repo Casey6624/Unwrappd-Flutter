@@ -51,19 +51,16 @@ class _SearchState extends State<Search> {
       obscureText: false,
       style: style,
       decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           hintText: "Search by postcode",
+          prefixIcon: Icon(Icons.search),
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(12.0))),
     );
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        searchField,
-        RaisedButton(
-          child: Text("GO"),
-          onPressed: _getChippies,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 75, 20, 0),
+      child: searchField,
     );
   }
 }
