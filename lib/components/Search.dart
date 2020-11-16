@@ -53,7 +53,7 @@ class _SearchState extends State<Search> {
       decoration: InputDecoration(
           hintText: "Search by postcode",
           border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))),
+              OutlineInputBorder(borderRadius: BorderRadius.circular(12.0))),
     );
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
