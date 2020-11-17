@@ -5,6 +5,7 @@ import "../classes/Chippy.dart";
 class ChippyCard extends StatelessWidget {
   final Chippy chippy;
   ChippyCard({this.chippy});
+
   @override
   Widget build(BuildContext context) {
     return Container(

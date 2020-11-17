@@ -26,7 +26,7 @@ class _SearchState extends State<Search> {
     });
     log("Calling API with param " + searchText);
     try {
-      Map<String, String> body = {'postcode': searchText};
+      Map<String, String> body = {'postcode': "S66 8RN"};
       final http.Response response = await http.post(
         'http://172.16.6.158:4500/get-chippies',
         headers: {'Content-Type': 'application/json; charset=UTF-8'},
