@@ -1,7 +1,7 @@
 class Chippy {
   final int priceRange;
   final String name, timings, thumb;
-  final List<String> highlights;
+  final List<dynamic> highlights;
   final Map<String, dynamic> location;
 
   // https://stackoverflow.com/questions/57508596/flutter-json-array-of-objects

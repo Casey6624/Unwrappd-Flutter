@@ -3,7 +3,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:unwrappd/components/AllChippies.dart';
 import "../classes/Chippy.dart";
+// routes
+import "../components/AllChippies.dart";
 
 class Search extends StatefulWidget {
   @override
@@ -11,9 +14,16 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  String searchText = "S66 8RN";
-
-  Future<Chippy> _callAPI() async {
+  List<Chippy> chippiesFound = [];
+  var loading = false;
+  Future<Null> _callAPI(String searchText) async {
+    if (loading) {
+      return;
+    }
+    chippiesFound.clear();
+    setState(() {
+      loading = true;
+    });
     log("Calling API with param " + searchText);
     try {
       Map<String, String> body = {'postcode': searchText};
@@ -23,9 +33,21 @@ class _SearchState extends State<Search> {
         body: jsonEncode(body),
       );
       if (response.statusCode == 200) {
-        Chippy chippies = Chippy.fromJson(jsonDecode(response.body)[0]);
-        log("haha");
-        return chippies;
+        final data = jsonDecode(response.body);
+        setState(() {
+          for (Map<String, dynamic> i in data) {
+            chippiesFound.add(Chippy.fromJson(i));
+            print(i);
+          }
+          loading = false;
+          if (!loading && chippiesFound.length > 0) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        AllChippies(allChippies: chippiesFound)));
+          }
+        });
       }
     } on Exception catch (exception) {
       log(exception.toString());
@@ -34,20 +56,15 @@ class _SearchState extends State<Search> {
     }
   }
 
-  Future<dynamic> _getChippies() async {
-    var test = _callAPI();
-    //log(chippies);
-  }
-
   @override
   Widget build(BuildContext context) {
     TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 16.0);
 
     final searchField = TextField(
-      onChanged: (txt) {
-        searchText = txt;
-        print(txt);
+      onSubmitted: (txt) {
+        _callAPI(txt);
       },
+      textInputAction: TextInputAction.search,
       obscureText: false,
       style: style,
       decoration: InputDecoration(
