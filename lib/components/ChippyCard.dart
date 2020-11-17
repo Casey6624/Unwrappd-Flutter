@@ -37,7 +37,7 @@ class ChippyCard extends StatelessWidget {
                   title: Text(chippy.name,
                       style: TextStyle(
                           fontSize: 20,
-                          color: UnwrappdColours.gold,
+                          color: UnwrappdColours.mainGreen,
                           fontWeight: FontWeight.w800)),
                   subtitle: Text(chippy.location.locality,
                       style: TextStyle(

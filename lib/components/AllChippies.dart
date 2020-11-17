@@ -24,7 +24,7 @@ class AllChippies extends StatelessWidget {
             child: Row(
               children: [
                 SvgPicture.asset("assets/fans.svg",
-                    semanticsLabel: "Fans", width: 70, height: 70),
+                    semanticsLabel: "Fans", width: 90, height: 90),
                 Flexible(
                   child: Text(
                     'Hurray! We found ${allChippies.length} fantastic restaraunts 🎉',
