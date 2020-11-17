@@ -16,6 +16,8 @@ Map<int, Color> _color = {
 class UnwrappdColours {
   static MaterialColor highlightGreen = MaterialColor(0xFF39DBA1, _color);
   static MaterialColor offHighlightGreen = MaterialColor(0xFF59c29d, _color);
-  static MaterialColor mainGreen = MaterialColor(0xFF59c29d, _color);
+  static MaterialColor mainGreen = MaterialColor(0xFF00242b, _color);
   static MaterialColor orange = MaterialColor(0xFFdb5439, _color);
+  static MaterialColor grey = MaterialColor(0xFFf2f2f2, _color);
+  static MaterialColor gold = MaterialColor(0xFFdba539, _color);
 }

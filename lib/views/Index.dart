@@ -5,7 +5,7 @@ import "../styles/UnwrappdColours.dart";
 // components
 import "../components/CardBlurb.dart";
 import "../components/Search.dart";
-import "../classes/CurvePainter.dart";
+import "../vectors/BottomCurve.dart";
 
 class Index extends StatelessWidget {
   @override
@@ -21,7 +21,7 @@ class Index extends StatelessWidget {
                 Text("Unwrappd.",
                     style: TextStyle(
                         fontFamily: "FrederickatheGreat",
-                        fontSize: 40,
+                        fontSize: 42,
                         color: UnwrappdColours.mainGreen)),
               ],
             ),
@@ -33,7 +33,7 @@ class Index extends StatelessWidget {
             alignmentDir: "right",
           ),
           CardBlurb(
-            icon: "assets/fans.svg",
+            icon: "assets/review.svg",
             mainText: "Compare against",
             highlightText: "Friends",
             alignmentDir: "left",
@@ -42,7 +42,7 @@ class Index extends StatelessWidget {
             height: 180,
             child: CustomPaint(
               child: Search(),
-              painter: CurvePainter(),
+              painter: BottomCurve(),
             ),
           ),
         ]));

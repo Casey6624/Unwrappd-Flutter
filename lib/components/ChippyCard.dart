@@ -13,34 +13,50 @@ class ChippyCard extends StatelessWidget {
     return Container(
         width: 200,
         child: Padding(
-          padding: new EdgeInsets.fromLTRB(0, 1, 0, 1),
+          padding: new EdgeInsets.fromLTRB(0, 3, 0, 3),
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0),
             ),
-            color: UnwrappdColours.orange,
+            color: Colors.white,
             elevation: 10,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ListTile(
-                  leading: Icon(Icons.album, size: 70),
-                  title:
-                      Text(chippy.name, style: TextStyle(color: Colors.white)),
-                  subtitle: Text(chippy.location.city,
-                      style: TextStyle(color: Colors.white)),
+                  leading: chippy.thumb.isEmpty || chippy.thumb == ""
+                      ? Icon(
+                          Icons.fastfood,
+                          size: 55,
+                          color: UnwrappdColours.gold,
+                        )
+                      : Image.network(
+                          chippy.thumb,
+                          scale: 6,
+                        ),
+                  title: Text(chippy.name,
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: UnwrappdColours.gold,
+                          fontWeight: FontWeight.w800)),
+                  subtitle: Text(chippy.location.locality,
+                      style: TextStyle(
+                          color: UnwrappdColours.highlightGreen,
+                          fontWeight: FontWeight.w800)),
                 ),
-                ButtonTheme.bar(
+                Container(
                   child: ButtonBar(
                     children: <Widget>[
                       FlatButton(
-                        child: const Text('View',
-                            style: TextStyle(color: Colors.white)),
+                        child: Text('View',
+                            style: TextStyle(
+                                color: UnwrappdColours.highlightGreen)),
                         onPressed: () {},
                       ),
                       FlatButton(
-                        child: const Text('Review',
-                            style: TextStyle(color: Colors.white)),
+                        child: Text('Review',
+                            style: TextStyle(
+                                color: UnwrappdColours.highlightGreen)),
                         onPressed: () {},
                       ),
                     ],
