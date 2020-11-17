@@ -8,21 +8,22 @@ class AllChippies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [Icon(Icons.keyboard_backspace)],
-      ),
-      backgroundColor: Colors.white,
-      body: Center(
-          child: Container(
-        child: Column(
-          children: <Widget>[
-            for (var chippy in allChippies)
-              ChippyCard(
-                chippy: chippy,
-              )
-          ],
+        appBar: AppBar(
+          actions: [Icon(Icons.keyboard_backspace)],
         ),
-      )),
-    );
+        backgroundColor: Colors.white,
+        body: Padding(
+          padding: new EdgeInsets.fromLTRB(10, 0, 10, 0),
+          child: Center(
+            child: ListView(
+              children: <Widget>[
+                for (var chippy in allChippies)
+                  ChippyCard(
+                    chippy: chippy,
+                  )
+              ],
+            ),
+          ),
+        ));
   }
 }
