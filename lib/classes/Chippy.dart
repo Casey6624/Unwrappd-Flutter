@@ -5,6 +5,7 @@ class Chippy {
   String name;
   String timings;
   String thumb;
+  String id;
   int priceRange;
   String createdAt;
   String updatedAt;
@@ -20,7 +21,8 @@ class Chippy {
       this.priceRange,
       this.createdAt,
       this.updatedAt,
-      this.iV});
+      this.iV,
+      this.id});
 
   Chippy.fromJson(Map<String, dynamic> json) {
     location = json['location'] != null
@@ -32,6 +34,7 @@ class Chippy {
     timings = json['timings'];
     thumb = json['thumb'];
     priceRange = json['price_range'];
+    id = json["id"];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
@@ -44,6 +47,7 @@ class Chippy {
     }
     data['highlights'] = this.highlights;
     data['_id'] = this.sId;
+    data['id'] = this.id;
     data['name'] = this.name;
     data['timings'] = this.timings;
     data['thumb'] = this.thumb;

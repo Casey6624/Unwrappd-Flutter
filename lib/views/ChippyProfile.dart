@@ -7,7 +7,8 @@ class ChippyProfile extends StatelessWidget {
   ChippyProfile({this.chippy});
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container(
+      child: Text("wooo profile haha $this.chippy.name"),
+    );
   }
 }

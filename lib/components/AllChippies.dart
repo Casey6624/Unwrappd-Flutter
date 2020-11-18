@@ -3,7 +3,6 @@ import 'package:unwrappd/styles/UnwrappdColours.dart';
 import "../classes/Chippy.dart";
 import "../components/ChippyCard.dart";
 import "package:flutter_svg/flutter_svg.dart";
-import "../vectors/TopCurve.dart";
 
 class AllChippies extends StatelessWidget {
   final List<Chippy> allChippies;
