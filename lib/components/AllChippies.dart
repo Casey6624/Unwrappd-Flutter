@@ -11,9 +11,7 @@ class AllChippies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [Icon(Icons.keyboard_backspace)],
-      ),
+      appBar: AppBar(),
       backgroundColor: Colors.white,
       body: ListView(
         padding: new EdgeInsets.all(5),
