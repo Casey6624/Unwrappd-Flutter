@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import "../../classes/Chippy.dart";
 // colours
 import "../../styles/UnwrappdColours.dart";
+// svgs
+import "../../vectors/TopCurve.dart";
 
 class About extends StatelessWidget {
   final Chippy chippy;
@@ -13,6 +15,12 @@ class About extends StatelessWidget {
       body: Container(
           child: Row(
         children: [
+          Container(
+            height: 200,
+            child: CustomPaint(
+              painter: TopCurve(),
+            ),
+          ),
           Container(
               alignment: Alignment.topCenter,
               child: CircleAvatar(
