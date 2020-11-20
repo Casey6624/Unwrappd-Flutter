@@ -18,9 +18,14 @@ class ChippyProfile extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: UnwrappdColours.highlightGreen,
             actions: [
-              Padding(
-                padding: new EdgeInsets.all(15),
-                child: Icon(Icons.close),
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Padding(
+                  padding: new EdgeInsets.all(15),
+                  child: Icon(Icons.close),
+                ),
               )
             ],
             bottom: TabBar(
