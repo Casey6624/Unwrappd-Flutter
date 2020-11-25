@@ -45,7 +45,6 @@ class ChippyCard extends StatelessWidget {
                 builder: (context) => ChippyProfile(chippy: chippyProfile)));
       } else {
         print("could not get the chippy data");
-        // TODO: add error popupo
       }
     }
 

@@ -4,6 +4,8 @@ import "../../classes/Chippy.dart";
 import "../../styles/UnwrappdColours.dart";
 // svgs
 import "../../vectors/TopCurve.dart";
+// components
+import "../../components/Highlights.dart";
 
 class About extends StatelessWidget {
   final Chippy chippy;
@@ -61,10 +63,10 @@ class About extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
+                      topLeft: Radius.circular(5),
+                      topRight: Radius.circular(5),
+                      bottomLeft: Radius.circular(5),
+                      bottomRight: Radius.circular(5)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
@@ -75,7 +77,7 @@ class About extends StatelessWidget {
                   ],
                 ),
                 child: Padding(
-                  padding: new EdgeInsets.all(50),
+                  padding: new EdgeInsets.fromLTRB(50, 10, 50, 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -84,7 +86,6 @@ class About extends StatelessWidget {
                         chippy.name,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          height: 2,
                           fontFamily: "FrederickatheGreat",
                           fontSize: 42,
                           color: UnwrappdColours.offHighlightGreen,
@@ -97,7 +98,9 @@ class About extends StatelessWidget {
                               fontFamily: 'Montserrat',
                               fontSize: 14.0)),
                       Container(
-                        child: Text("Highlights need adding!"),
+                        child: Highlights(
+                          highlights: chippy.highlights,
+                        ),
                       )
                     ],
                   ),
